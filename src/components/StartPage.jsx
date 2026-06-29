@@ -33,24 +33,24 @@ const StartPage = ({ onStart, isAdmin, onLogout }) => {
     if (players.length >= 2) {
       onStart(players);
     } else {
-      alert('Please enter at least 2 players');
+      alert('Bitte gib mindestens 2 Spieler ein');
     }
   };
 
   return (
     <div className="start-page">
       {isAdmin && (
-        <button className="logout-btn" onClick={onLogout}>🚪 Logout</button>
+        <button className="logout-btn" onClick={onLogout}>🚪 Abmelden</button>
       )}
       <div className="start-container">
-        <h1 className="start-title">🏅 Game Olympiad</h1>
+        <h1 className="start-title">🏅 Spiel Olympiad</h1>
         <p className="start-subtitle">
-          {isAdmin ? '👑 Admin Mode' : '👀 Viewer Mode'}
+          {isAdmin ? '👑 Admin-Modus' : '👀 Zuschauer-Modus'}
         </p>
 
         {isAdmin ? (
         <div className="setup-section">
-          <h2>Setup Players</h2>
+          <h2>Spieler einrichten</h2>
           <div className="player-count-selector">
             {[4, 5, 6].map((count) => (
               <button
@@ -64,14 +64,14 @@ const StartPage = ({ onStart, isAdmin, onLogout }) => {
           </div>
 
           <div className="player-names-section">
-            <h3>Enter Player Names</h3>
+            <h3>Spielernamen eingeben</h3>
             <div className="player-inputs">
               {playerNames.map((name, index) => (
                 <div key={index} className="player-input-group">
-                  <label>Player {index + 1}</label>
+                  <label>Spieler {index + 1}</label>
                   <input
                     type="text"
-                    placeholder={`Player ${index + 1}`}
+                    placeholder={`Spieler ${index + 1}`}
                     value={name}
                     onChange={(e) => handlePlayerNameChange(index, e.target.value)}
                   />
@@ -81,17 +81,17 @@ const StartPage = ({ onStart, isAdmin, onLogout }) => {
           </div>
 
           <Button 
-            label="Start Olympiad" 
+            label="Olympiad starten" 
             onClick={handleStartGame}
             variant="success"
           />
         </div>
         ) : (
           <div className="viewer-message">
-            <p>Welcome to the Game Olympiad!</p>
-            <p>You are viewing this event. Scores update automatically every 2 seconds.</p>
+            <p>Willkommen bei der Spiel Olympiad!</p>
+            <p>Sie schauen sich diesen Event an. Punkte werden automatisch alle 10 Sekunden aktualisiert.</p>
             <Button 
-              label="View Games & Scores" 
+              label="Spiele & Ergebnisse anschauen" 
               onClick={handleStartGame}
               variant="primary"
             />

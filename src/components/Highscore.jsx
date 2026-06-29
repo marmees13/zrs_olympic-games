@@ -48,10 +48,10 @@ const Highscore = ({ players, results, games }) => {
 
   return (
     <div className="highscore">
-      <h2>🏆 Highscore Board</h2>
+      <h2>🏆 Bestenliste</h2>
 
       {sortedPlayers.length === 0 ? (
-        <p className="no-data">No players data</p>
+        <p className="no-data">Keine Spielerdaten</p>
       ) : (
         <div className="highscore-container">
           {/* Top 3 Podium */}
@@ -86,9 +86,9 @@ const Highscore = ({ players, results, games }) => {
           {/* Full Leaderboard */}
           <div className="leaderboard">
             <div className="leaderboard-header">
-              <div className="rank">Rank</div>
-              <div className="name-col">Player</div>
-              <div className="total-score">Total</div>
+              <div className="rank">Rang</div>
+              <div className="name-col">Spieler</div>
+              <div className="total-score">Gesamt</div>
             </div>
 
             {sortedPlayers.map((player, index) => (
@@ -105,12 +105,12 @@ const Highscore = ({ players, results, games }) => {
           {/* Detailed Results Table */}
           {results.length > 0 && (
             <div className="detailed-results">
-              <h3>Detailed Results</h3>
+              <h3>Detaillierte Ergebnisse</h3>
               <div className="results-table-container">
                 <table className="results-table">
                   <thead>
                     <tr>
-                      <th>Player</th>
+                      <th>Spieler</th>
                       {games.map(game => (
                         <th key={game.id}>{game.name}</th>
                       ))}
@@ -135,7 +135,7 @@ const Highscore = ({ players, results, games }) => {
 
           {results.length === 0 && (
             <div className="no-results">
-              <p>No results entered yet. Go to "Results" tab to enter game results!</p>
+              <p>Noch keine Ergebnisse eingegeben. Gehen Sie zur Registerkarte "Ergebnisse", um Spielergebnisse einzugeben!</p>
             </div>
           )}
         </div>

@@ -22,7 +22,7 @@ const AdminLogin = ({ onAdminLogin, onContinueAsViewer }) => {
       <div className="login-container">
         <div className="login-header">
           <h1>🎮 Spiel Olympiad</h1>
-          <p>Wählen Sie Ihren Modus zum Fortfahren</p>
+          <p>Wähle deinen Modus zum Fortfahren</p>
         </div>
 
         <div className="login-options">
@@ -69,7 +69,7 @@ const AdminLogin = ({ onAdminLogin, onContinueAsViewer }) => {
               onClick={onContinueAsViewer}
               variant="primary"
             />
-            <p className="hint">🔄 Automatische Aktualisierung alle 2 Sekunden</p>
+            <p className="hint">🔄 Automatische Aktualisierung alle 10 Sekunden</p>
           </div>
         </div>
       </div>

@@ -5,7 +5,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Production
-dist/
 build/
 
 # Environment variables
@@ -41,3 +40,4 @@ logs/
 # Misc
 .out
 coverage/
+.playwright-mcp

@@ -31,19 +31,19 @@ const GameOlympiad = ({ players, games, results, onGamesChange, onResultsChange,
     <div className="game-olympiad">
       <div className="olympiad-header">
         <div className="header-left">
-          <h1>🏅 Game Olympiad</h1>
+          <h1>🏅 Spiel Olympiad</h1>
           {!isAdmin && (
-            <span className="viewer-mode-indicator">👀 Viewer Mode • Last update: {new Date(lastUpdate).toLocaleTimeString()}</span>
+            <span className="viewer-mode-indicator">👀 Zuschauer-Modus • Zuletzt aktualisiert: {new Date(lastUpdate).toLocaleTimeString()}</span>
           )}
         </div>
         <div className="header-right">
           <Button 
-            label="← Back" 
+            label="← Zurück" 
             onClick={onBack}
             variant="secondary"
           />
           <Button 
-            label="🚪 Logout" 
+            label="🚪 Abmelden" 
             onClick={onLogout}
             variant="danger"
           />
@@ -56,7 +56,7 @@ const GameOlympiad = ({ players, games, results, onGamesChange, onResultsChange,
             className={`tab-btn ${activeTab === 'games' ? 'active' : ''}`}
             onClick={() => setActiveTab('games')}
           >
-            🎮 Games
+            🎮 Spiele
           </button>
         )}
         {isAdmin && (
@@ -64,14 +64,14 @@ const GameOlympiad = ({ players, games, results, onGamesChange, onResultsChange,
             className={`tab-btn ${activeTab === 'results' ? 'active' : ''}`}
             onClick={() => setActiveTab('results')}
           >
-            📝 Results
+            📝 Ergebnisse
           </button>
         )}
         <button 
           className={`tab-btn ${activeTab === 'highscore' ? 'active' : ''}`}
           onClick={() => setActiveTab('highscore')}
         >
-          🏆 Highscore
+          🏆 Bestenliste
         </button>
       </div>
 

@@ -44,18 +44,18 @@ const GameManager = ({ games, onAddGame, onRemoveGame, onReorderGames }) => {
 
   return (
     <div className="game-manager">
-      <h2>Manage Games</h2>
+      <h2>Spiele verwalten</h2>
       
       <div className="add-game-section">
         <input
           type="text"
-          placeholder="Enter game name..."
+          placeholder="Spielname eingeben..."
           value={newGameName}
           onChange={(e) => setNewGameName(e.target.value)}
           onKeyPress={(e) => e.key === 'Enter' && handleAddGame()}
         />
         <Button 
-          label="Add Game" 
+          label="Spiel hinzufügen" 
           onClick={handleAddGame}
           variant="success"
           disabled={!newGameName.trim() || games.length >= 10}
@@ -63,10 +63,10 @@ const GameManager = ({ games, onAddGame, onRemoveGame, onReorderGames }) => {
       </div>
 
       {games.length === 0 ? (
-        <p className="no-games">No games yet. Add your first game!</p>
+        <p className="no-games">Noch keine Spiele. Fügen Sie Ihr erstes Spiel hinzu!</p>
       ) : (
         <div className="games-list">
-          <p className="games-info">📌 Drag to reorder • Maximum 10 games</p>
+          <p className="games-info">📌 Ziehen zum Umordnen • Maximal 10 Spiele</p>
           {games.map((game, index) => (
             <div
               key={game.id}
@@ -81,7 +81,7 @@ const GameManager = ({ games, onAddGame, onRemoveGame, onReorderGames }) => {
               <span className="game-name">{game.name}</span>
               <span className="drag-handle">⋮⋮</span>
               <Button 
-                label="Remove"
+                label="Entfernen"
                 onClick={() => onRemoveGame(game.id)}
                 variant="danger"
               />
@@ -91,7 +91,7 @@ const GameManager = ({ games, onAddGame, onRemoveGame, onReorderGames }) => {
       )}
 
       <div className="game-info">
-        <p>Total Games: {games.length}/10</p>
+        <p>Insgesamt Spiele: {games.length}/10</p>
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ const App = () => {
     setMode('login');
   }, []);
 
-  // Auto-refresh for viewers (every 2 seconds)
+  // Auto-refresh for viewers (every 10 seconds)
   useEffect(() => {
     if (mode === 'viewer' && gameStarted) {
       const interval = setInterval(() => {
@@ -34,7 +34,7 @@ const App = () => {
           setResults(data.results);
           setLastUpdate(Date.now());
         }
-      }, 2000);
+      }, 10000);
       return () => clearInterval(interval);
     }
   }, [mode, gameStarted]);

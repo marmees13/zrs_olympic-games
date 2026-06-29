@@ -26,15 +26,15 @@ const ResultsEntry = ({ games, players, onGameResult, getGameResult }) => {
 
   const handleSaveResult = () => {
     if (rankings.length === 0) {
-      alert('Please select at least 1st place');
+      alert('Bitte wähle mindestens den 1. Platz');
       return;
     }
     if (new Set(rankings).size !== rankings.length) {
-      alert('Each position must have a different player');
+      alert('Jede Position muss einen anderen Spieler haben');
       return;
     }
     onGameResult(selectedGameId, rankings);
-    alert('Result saved!');
+    alert('Ergebnis gespeichert!');
   };
 
   const unrankedPlayers = players.filter(
@@ -45,10 +45,10 @@ const ResultsEntry = ({ games, players, onGameResult, getGameResult }) => {
 
   return (
     <div className="results-entry">
-      <h2>Enter Game Results</h2>
+      <h2>Spielergebnisse eingeben</h2>
 
       <div className="game-selector">
-        <label>Select Game:</label>
+        <label>Spiel auswählen:</label>
         <select 
           value={selectedGameId || ''} 
           onChange={(e) => setSelectedGameId(parseInt(e.target.value))}
@@ -62,10 +62,10 @@ const ResultsEntry = ({ games, players, onGameResult, getGameResult }) => {
       </div>
 
       {games.length === 0 ? (
-        <p className="no-games">No games available. Create games first!</p>
+        <p className="no-games">Keine Spiele verfügbar. Erstellen Sie zuerst Spiele!</p>
       ) : selectedGame ? (
         <div className="rankings-section">
-          <h3>{selectedGame.name} Rankings</h3>
+          <h3>{selectedGame.name} Rangfolge</h3>
 
           <div className="rankings-list">
             {rankings.map((playerId, position) => {
@@ -80,7 +80,7 @@ const ResultsEntry = ({ games, players, onGameResult, getGameResult }) => {
                     <span className="points">+{pointsSystem[position] || 0} pts</span>
                   </div>
                   <Button
-                    label="Remove"
+                    label="Entfernen"
                     onClick={() => {
                       const newRankings = rankings.filter((_, i) => i !== position);
                       setRankings(newRankings);
@@ -94,7 +94,7 @@ const ResultsEntry = ({ games, players, onGameResult, getGameResult }) => {
 
           {unrankedPlayers.length > 0 && (
             <div className="add-ranking-section">
-              <label>Add Player ({rankings.length + 1} place):</label>
+              <label>Spieler hinzufügen ({rankings.length + 1}. Platz):</label>
               <select 
                 defaultValue=""
                 onChange={(e) => {
@@ -105,7 +105,7 @@ const ResultsEntry = ({ games, players, onGameResult, getGameResult }) => {
                   }
                 }}
               >
-                <option value="">Select a player...</option>
+                <option value="">Wählen Sie einen Spieler...</option>
                 {unrankedPlayers.map(player => (
                   <option key={player.id} value={player.id}>
                     {player.name}
@@ -118,7 +118,7 @@ const ResultsEntry = ({ games, players, onGameResult, getGameResult }) => {
           {rankings.length > 0 && (
             <div className="save-section">
               <Button 
-                label="Save Result" 
+                label="Ergebnis speichern" 
                 onClick={handleSaveResult}
                 variant="success"
               />
@@ -127,7 +127,7 @@ const ResultsEntry = ({ games, players, onGameResult, getGameResult }) => {
 
           {gameResult && (
             <div className="result-saved">
-              ✅ Result saved for this game
+              ✅ Ergebnis für dieses Spiel gespeichert
             </div>
           )}
         </div>
