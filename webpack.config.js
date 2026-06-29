@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const publicPath = isProduction ? '/zrs-olympic-games/' : '/';
@@ -19,7 +20,15 @@ module.exports = {
       filename: 'index.html',
       publicPath: publicPath,
     }),
-  ],
+    isProduction && new CopyPlugin({
+      patterns: [
+        {
+          from: '.nojekyll',
+          to: '.nojekyll',
+        },
+      ],
+    }),
+  ].filter(Boolean),
   devServer: {
     static: {
       directory: path.join(__dirname, 'public'),
