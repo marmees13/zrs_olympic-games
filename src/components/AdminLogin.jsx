@@ -12,7 +12,7 @@ const AdminLogin = ({ onAdminLogin, onContinueAsViewer }) => {
     if (adminPassword === correctPassword) {
       onAdminLogin();
     } else {
-      alert('Incorrect password!');
+      alert('Falsches Passwort!');
       setAdminPassword('');
     }
   };
@@ -21,22 +21,22 @@ const AdminLogin = ({ onAdminLogin, onContinueAsViewer }) => {
     <div className="admin-login">
       <div className="login-container">
         <div className="login-header">
-          <h1>🎮 Game Olympiad</h1>
-          <p>Choose your mode to continue</p>
+          <h1>🎮 Spiel Olympiad</h1>
+          <p>Wählen Sie Ihren Modus zum Fortfahren</p>
         </div>
 
         <div className="login-options">
           <div className="login-card">
             <div className="card-icon">👑</div>
-            <h2>Admin Mode</h2>
-            <p>Create games, manage players, and view results</p>
+            <h2>Admin-Modus</h2>
+            <p>Erstellen Sie Spiele, verwalten Sie Spieler und zeigen Sie Ergebnisse an</p>
             
             <div className="password-input-group">
-              <label>Admin Password</label>
+              <label>Admin-Passwort</label>
               <div className="password-input-wrapper">
                 <input
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="Enter admin password"
+                  placeholder="Admin-Passwort eingeben"
                   value={adminPassword}
                   onChange={(e) => setAdminPassword(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleAdminLogin()}
@@ -51,26 +51,25 @@ const AdminLogin = ({ onAdminLogin, onContinueAsViewer }) => {
             </div>
 
             <Button 
-              label="Login as Admin" 
+              label="Als Admin anmelden" 
               onClick={handleAdminLogin}
               variant="success"
             />
-            <p className="hint">💡 Default password: <code>admin123</code></p>
           </div>
 
-          <div className="divider">OR</div>
+          <div className="divider">ODER</div>
 
           <div className="login-card viewer">
             <div className="card-icon">👀</div>
-            <h2>Viewer Mode</h2>
-            <p>Watch games and see live results & highscores</p>
+            <h2>Zuschauer-Modus</h2>
+            <p>Beobachten Sie Spiele und sehen Sie Live-Ergebnisse und Bestenlisten</p>
             
             <Button 
-              label="Continue as Viewer" 
+              label="Als Zuschauer fortfahren" 
               onClick={onContinueAsViewer}
               variant="primary"
             />
-            <p className="hint">🔄 Auto-updates every 2 seconds</p>
+            <p className="hint">🔄 Automatische Aktualisierung alle 2 Sekunden</p>
           </div>
         </div>
       </div>

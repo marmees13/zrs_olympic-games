@@ -194,21 +194,9 @@
 }
 
 .result-cell {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.result-cell .position {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.result-cell .points {
-  font-size: 11px;
-  color: var(--success);
-  font-weight: bold;
+  text-align: center;
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
 .total-col {

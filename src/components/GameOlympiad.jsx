@@ -23,6 +23,10 @@ const GameOlympiad = ({ players, games, results, onGamesChange, onResultsChange,
     onResultsChange(newResults);
   };
 
+  const getGameResult = (gameId) => {
+    return localResults.find(r => r.gameId === gameId);
+  };
+
   return (
     <div className="game-olympiad">
       <div className="olympiad-header">

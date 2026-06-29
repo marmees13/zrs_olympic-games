@@ -114,7 +114,6 @@ const Highscore = ({ players, results, games }) => {
                       {games.map(game => (
                         <th key={game.id}>{game.name}</th>
                       ))}
-                      <th>Total</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -123,11 +122,9 @@ const Highscore = ({ players, results, games }) => {
                         <td className="player-name">{player.name}</td>
                         {games.map(game => (
                           <td key={game.id} className="result-cell">
-                            <span className="position">{getPlayerPositionInGame(player.id, game.id)}</span>
-                            <span className="points">+{getPointsInGame(player.id, game.id)}</span>
+                            {getPointsInGame(player.id, game.id)}
                           </td>
                         ))}
-                        <td className="total-col">{playerScores[player.id]}</td>
                       </tr>
                     ))}
                   </tbody>
