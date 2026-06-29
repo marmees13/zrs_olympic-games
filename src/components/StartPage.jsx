@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from './Button';
+import { clearAllData } from '../utils/serverDataStore';
 import './StartPage.css';
 
 const StartPage = ({ onStart, isAdmin, onLogout }) => {
@@ -37,15 +38,22 @@ const StartPage = ({ onStart, isAdmin, onLogout }) => {
     }
   };
 
+  const handleResetAllData = async () => {
+    if (window.confirm('⚠️ Alle Daten löschen? (Spieler, Spiele, Ergebnisse, Punkte)\n\nDies kann nicht rückgängig gemacht werden!')) {
+      await clearAllData();
+      window.location.reload();
+    }
+  };
+
   return (
     <div className="start-page">
       {isAdmin && (
         <button className="logout-btn" onClick={onLogout}>🚪 Abmelden</button>
       )}
       <div className="start-container">
-        <h1 className="start-title">🏅 Spiel Olympiad</h1>
+        <h1 className="start-title">🏅 ZRS Meisterschaft</h1>
         <p className="start-subtitle">
-          {isAdmin ? '👑 Admin-Modus' : '👀 Zuschauer-Modus'}
+          {isAdmin ? '👑 Spielleiter-Modus' : '👀 Zuschauer-Modus'}
         </p>
 
         {isAdmin ? (
@@ -85,10 +93,16 @@ const StartPage = ({ onStart, isAdmin, onLogout }) => {
             onClick={handleStartGame}
             variant="success"
           />
+
+          <Button 
+            label="🔄 Alle Daten zurücksetzen" 
+            onClick={handleResetAllData}
+            variant="danger"
+          />
         </div>
         ) : (
           <div className="viewer-message">
-            <p>Willkommen bei der Spiel Olympiad!</p>
+            <p>Willkommen bei den ZRS olympischen Spielen!</p>
             <p>Sie schauen sich diesen Event an. Punkte werden automatisch alle 10 Sekunden aktualisiert.</p>
             <Button 
               label="Spiele & Ergebnisse anschauen" 

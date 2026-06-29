@@ -31,7 +31,7 @@ const GameOlympiad = ({ players, games, results, onGamesChange, onResultsChange,
     <div className="game-olympiad">
       <div className="olympiad-header">
         <div className="header-left">
-          <h1>🏅 Spiel Olympiad</h1>
+          <h1>🏅 ZRS Meisterschaft</h1>
           {!isAdmin && (
             <span className="viewer-mode-indicator">👀 Zuschauer-Modus • Zuletzt aktualisiert: {new Date(lastUpdate).toLocaleTimeString()}</span>
           )}

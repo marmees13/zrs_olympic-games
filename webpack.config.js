@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
-const publicPath = isProduction ? '/zrs-olympic-games/' : '/';
+const publicPath = './';
 
 module.exports = {
   mode: isProduction ? 'production' : 'development',

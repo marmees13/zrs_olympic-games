@@ -1,0 +1,31 @@
+{
+  "players": [],
+  "games": [
+    {
+      "id": 1,
+      "name": "Mario Kart"
+    },
+    {
+      "id": 2,
+      "name": "Chess"
+    },
+    {
+      "id": 3,
+      "name": "Foosball"
+    },
+    {
+      "id": 4,
+      "name": "Ping Pong"
+    },
+    {
+      "id": 5,
+      "name": "Darts"
+    },
+    {
+      "id": 6,
+      "name": "Pool"
+    }
+  ],
+  "results": [],
+  "lastUpdated": "2026-06-29T16:25:16.975Z"
+}

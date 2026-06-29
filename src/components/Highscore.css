@@ -1,6 +1,7 @@
 .highscore {
   background: transparent;
   border-radius: 0;
+  min-height: 300px;
 }
 
 .highscore h2 {

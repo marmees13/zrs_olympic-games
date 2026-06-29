@@ -23,5 +23,6 @@
 @media (min-width: 1024px) {
   .app {
     padding: 32px;
+    width: 100%;
   }
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AdminLogin from './components/AdminLogin';
 import StartPage from './components/StartPage';
 import GameOlympiad from './components/GameOlympiad';
-import { initializeData, getAppData, updateGames, updatePlayers, updateResults } from './utils/dataStore';
+import { initializeData, getAppData, updateGames, updatePlayers, updateResults } from './utils/serverDataStore';
 import './App.css';
 
 const App = () => {
@@ -16,18 +16,23 @@ const App = () => {
 
   // Initialize data on mount
   useEffect(() => {
-    const data = initializeData();
-    setPlayers(data.players);
-    setGames(data.games);
-    setResults(data.results);
-    setMode('login');
+    const loadInitialData = async () => {
+      const data = await initializeData();
+      if (data) {
+        setPlayers(data.players);
+        setGames(data.games);
+        setResults(data.results);
+      }
+      setMode('login');
+    };
+    loadInitialData();
   }, []);
 
   // Auto-refresh for viewers (every 10 seconds)
   useEffect(() => {
     if (mode === 'viewer' && gameStarted) {
-      const interval = setInterval(() => {
-        const data = getAppData();
+      const interval = setInterval(async () => {
+        const data = await getAppData();
         if (data) {
           setPlayers(data.players);
           setGames(data.games);
@@ -50,9 +55,9 @@ const App = () => {
     setGameStarted(true);
   };
 
-  const handleStartGame = (playersData) => {
+  const handleStartGame = async (playersData) => {
     setPlayers(playersData);
-    updatePlayers(playersData);
+    await updatePlayers(playersData);
     setGameStarted(true);
   };
 
@@ -61,14 +66,14 @@ const App = () => {
     setPlayers([]);
   };
 
-  const handleGamesChange = (newGames) => {
+  const handleGamesChange = async (newGames) => {
     setGames(newGames);
-    updateGames(newGames);
+    await updateGames(newGames);
   };
 
-  const handleResultsChange = (newResults) => {
+  const handleResultsChange = async (newResults) => {
     setResults(newResults);
-    updateResults(newResults);
+    await updateResults(newResults);
   };
 
   const handleLogout = () => {
