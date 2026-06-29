@@ -1,0 +1,162 @@
+.results-entry {
+  background: white;
+  border-radius: 10px;
+}
+
+.results-entry h2 {
+  margin: 0 0 25px;
+  color: #333;
+  font-size: 24px;
+}
+
+.results-entry h3 {
+  margin: 20px 0 15px;
+  color: #555;
+  font-size: 18px;
+}
+
+.game-selector {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.game-selector label {
+  font-weight: 500;
+  color: #555;
+  white-space: nowrap;
+}
+
+.game-selector select,
+.add-ranking-section select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.game-selector select:focus,
+.add-ranking-section select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.no-games {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px;
+  font-size: 16px;
+}
+
+.rankings-section {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.rankings-list {
+  margin: 20px 0;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.ranking-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.position-badge {
+  min-width: 50px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.ranking-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.points {
+  font-size: 14px;
+  color: #28a745;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.add-ranking-section {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 20px 0;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  border: 2px dashed #667eea;
+}
+
+.add-ranking-section label {
+  font-weight: 500;
+  color: #555;
+  white-space: nowrap;
+}
+
+.add-ranking-section select {
+  flex: 1;
+  margin: 0;
+}
+
+.save-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.result-saved {
+  margin-top: 20px;
+  padding: 15px;
+  background: #d4edda;
+  color: #155724;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .game-selector {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ranking-item {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .add-ranking-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,253 @@
+.highscore {
+  background: white;
+  border-radius: 10px;
+}
+
+.highscore h2 {
+  margin: 0 0 25px;
+  color: #333;
+  font-size: 24px;
+}
+
+.highscore h3 {
+  margin: 30px 0 20px;
+  color: #555;
+  font-size: 18px;
+}
+
+.no-data {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px;
+  font-size: 16px;
+}
+
+/* Podium */
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 15px;
+  margin-bottom: 40px;
+  height: 200px;
+}
+
+.podium-place {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px;
+  border-radius: 8px 8px 0 0;
+  color: white;
+  min-width: 120px;
+  font-weight: bold;
+}
+
+.podium-place.gold {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #333;
+  order: 2;
+  height: 100%;
+}
+
+.podium-place.silver {
+  background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+  color: #333;
+  order: 1;
+  height: 70%;
+}
+
+.podium-place.bronze {
+  background: linear-gradient(135deg, #cd7f32 0%, #e8a76a 100%);
+  order: 3;
+  height: 50%;
+}
+
+.podium-place .medal {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.podium-place .name {
+  font-size: 16px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.podium-place .score {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Leaderboard */
+.leaderboard {
+  background: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.leaderboard-header {
+  display: grid;
+  grid-template-columns: 60px 1fr 80px;
+  gap: 15px;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: bold;
+}
+
+.leaderboard-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 80px;
+  gap: 15px;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+  align-items: center;
+  background: white;
+  transition: background 0.3s ease;
+}
+
+.leaderboard-row:hover {
+  background: #f8f9fa;
+}
+
+.leaderboard-row:last-child {
+  border-bottom: none;
+}
+
+.rank {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.name-col {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.total-score {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #667eea;
+}
+
+/* Detailed Results Table */
+.detailed-results {
+  margin-top: 30px;
+}
+
+.results-table-container {
+  overflow-x: auto;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.results-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.results-table th {
+  padding: 15px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.results-table th:first-child {
+  text-align: left;
+}
+
+.results-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.results-table tr:hover {
+  background: #f8f9fa;
+}
+
+.player-name {
+  text-align: left;
+  font-weight: 500;
+  color: #333;
+}
+
+.result-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.result-cell .position {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.result-cell .points {
+  font-size: 12px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.total-col {
+  font-weight: bold;
+  color: #667eea;
+  font-size: 16px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 30px;
+  background: #e7f3ff;
+  border-radius: 8px;
+  color: #0066cc;
+}
+
+@media (max-width: 768px) {
+  .podium {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 10px;
+  }
+
+  .podium-place {
+    order: initial;
+    height: auto;
+    width: 100%;
+    min-width: auto;
+  }
+
+  .podium-place.gold {
+    width: 100%;
+  }
+
+  .leaderboard-header,
+  .leaderboard-row {
+    grid-template-columns: 40px 1fr 60px;
+  }
+
+  .results-table-container {
+    font-size: 12px;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: 8px 10px;
+  }
+}
