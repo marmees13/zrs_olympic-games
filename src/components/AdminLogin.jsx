@@ -7,8 +7,8 @@ const AdminLogin = ({ onAdminLogin, onContinueAsViewer }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleAdminLogin = () => {
-    // Default admin password: 'admin123'
-    const correctPassword = 'admin123';
+    // Default admin password: 'swordfish'
+    const correctPassword = 'swordfish';
     if (adminPassword === correctPassword) {
       onAdminLogin();
     } else {
@@ -32,11 +32,10 @@ const AdminLogin = ({ onAdminLogin, onContinueAsViewer }) => {
             <p>Erstelle Spiele, verwalte Spieler und zeige Ergebnisse an</p>
             
             <div className="password-input-group">
-              <label>Spielleiter-Passwort</label>
               <div className="password-input-wrapper">
                 <input
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="Spielleiter-Passwort eingeben"
+                  placeholder="Passwort eingeben"
                   value={adminPassword}
                   onChange={(e) => setAdminPassword(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleAdminLogin()}
@@ -69,7 +68,6 @@ const AdminLogin = ({ onAdminLogin, onContinueAsViewer }) => {
               onClick={onContinueAsViewer}
               variant="primary"
             />
-            <p className="hint">🔄 Automatische Aktualisierung alle 10 Sekunden</p>
           </div>
         </div>
       </div>

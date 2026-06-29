@@ -100,6 +100,269 @@
   }
 }
 
+/* Data Management Styles */
+.data-management {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.data-section {
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid var(--border);
+}
+
+.data-section h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.players-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.player-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-secondary);
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.player-info {
+  flex: 1;
+}
+
+.player-info h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.player-stats {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.total-points {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.btn-delete {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background 0.2s;
+  margin-left: 12px;
+  white-space: nowrap;
+}
+
+.btn-delete:hover {
+  background: #c82333;
+}
+
+.results-table-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.game-result-section {
+  background: var(--bg-secondary);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.game-header h3 {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.btn-delete-small {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-delete-small:hover {
+  background: #c82333;
+}
+
+.rankings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.rank-badge {
+  font-weight: 700;
+  color: var(--text-secondary);
+  min-width: 24px;
+}
+
+.player-name {
+  flex: 1;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.points {
+  background: var(--bg-secondary);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 24px 16px;
+  font-style: italic;
+}
+
+/* Players Management Styles */
+.players-management {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.players-management h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  color: var(--text-primary);
+}
+
+.player-count-selector {
+  background: var(--bg-tertiary);
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.player-count-selector label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.count-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.count-btn {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 2px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.count-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: #007bff;
+}
+
+.count-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.player-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--bg-tertiary);
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.player-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.player-input-group label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.player-input-group input {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.player-input-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.players-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.players-actions button {
+  flex: 1;
+  min-width: 150px;
+}
+
 @media (min-width: 640px) {
   .olympiad-header {
     flex-direction: row;
@@ -124,6 +387,14 @@
   .tab-btn {
     font-size: 14px;
     padding: 14px;
+  }
+
+  .player-card {
+    padding: 16px;
+  }
+
+  .data-section h2 {
+    font-size: 20px;
   }
 }
 

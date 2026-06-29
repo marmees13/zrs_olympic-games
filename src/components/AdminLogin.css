@@ -51,6 +51,9 @@
   background: var(--bg-secondary);
   transition: all 0.3s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .login-card:hover {

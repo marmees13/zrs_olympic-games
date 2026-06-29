@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import AdminLogin from './components/AdminLogin';
-import StartPage from './components/StartPage';
 import GameOlympiad from './components/GameOlympiad';
 import { initializeData, getAppData, updateGames, updatePlayers, updateResults } from './utils/serverDataStore';
 import './App.css';
@@ -47,6 +46,7 @@ const App = () => {
   const handleAdminLogin = () => {
     setMode('admin');
     setIsAdmin(true);
+    setGameStarted(true);
   };
 
   const handleContinueAsViewer = () => {
@@ -59,6 +59,11 @@ const App = () => {
     setPlayers(playersData);
     await updatePlayers(playersData);
     setGameStarted(true);
+  };
+
+  const handlePlayersChange = async (playersData) => {
+    setPlayers(playersData);
+    await updatePlayers(playersData);
   };
 
   const handleBack = () => {
@@ -92,14 +97,6 @@ const App = () => {
         />
       )}
 
-      {mode === 'admin' && !gameStarted && (
-        <StartPage 
-          onStart={handleStartGame}
-          isAdmin={isAdmin}
-          onLogout={handleLogout}
-        />
-      )}
-
       {(mode === 'admin' || mode === 'viewer') && gameStarted && (
         <GameOlympiad 
           players={players}
@@ -107,6 +104,7 @@ const App = () => {
           results={results}
           onGamesChange={handleGamesChange}
           onResultsChange={handleResultsChange}
+          onPlayersChange={handlePlayersChange}
           onBack={handleBack}
           isAdmin={isAdmin}
           onLogout={handleLogout}

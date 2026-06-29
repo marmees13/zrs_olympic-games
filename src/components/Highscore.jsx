@@ -10,9 +10,13 @@ const Highscore = ({ players, results, games }) => {
 
   const pointsSystem = [6, 4, 3, 2, 1, 0];
   results.forEach(result => {
-    result.rankings.forEach((playerId, position) => {
+    result.rankings.forEach((rankingItem, position) => {
+      // Handle both old format (playerId) and new format ({playerId, points})
+      const playerId = typeof rankingItem === 'object' ? rankingItem.playerId : rankingItem;
+      const points = typeof rankingItem === 'object' ? rankingItem.points : (pointsSystem[position] || 0);
+      
       if (playerScores[playerId] !== undefined) {
-        playerScores[playerId] += pointsSystem[position] || 0;
+        playerScores[playerId] += points;
       }
     });
   });
@@ -28,7 +32,10 @@ const Highscore = ({ players, results, games }) => {
     const gameResult = getGameResult(gameId);
     if (!gameResult) return '-';
     
-    const position = gameResult.rankings.indexOf(playerId);
+    const position = gameResult.rankings.findIndex(rankingItem => {
+      const currentPlayerId = typeof rankingItem === 'object' ? rankingItem.playerId : rankingItem;
+      return currentPlayerId === playerId;
+    });
     if (position === -1) return '-';
     
     const badges = ['🥇', '🥈', '🥉', '4th', '5th', '6th'];
@@ -39,11 +46,15 @@ const Highscore = ({ players, results, games }) => {
     const gameResult = getGameResult(gameId);
     if (!gameResult) return 0;
     
-    const position = gameResult.rankings.indexOf(playerId);
-    if (position === -1) return 0;
+    const rankingItem = gameResult.rankings.find(item => {
+      const currentPlayerId = typeof item === 'object' ? item.playerId : item;
+      return currentPlayerId === playerId;
+    });
     
-    const pointsSystem = [6, 4, 3, 2, 1, 0];
-    return pointsSystem[position] || 0;
+    if (!rankingItem) return 0;
+    
+    // Return points directly if in new format, otherwise calculate
+    return typeof rankingItem === 'object' ? rankingItem.points : 0;
   };
 
   return (

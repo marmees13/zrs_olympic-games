@@ -89,15 +89,9 @@ const StartPage = ({ onStart, isAdmin, onLogout }) => {
           </div>
 
           <Button 
-            label="Olympiad starten" 
+            label="Starten" 
             onClick={handleStartGame}
             variant="success"
-          />
-
-          <Button 
-            label="🔄 Alle Daten zurücksetzen" 
-            onClick={handleResetAllData}
-            variant="danger"
           />
         </div>
         ) : (
