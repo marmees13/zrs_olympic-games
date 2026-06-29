@@ -1,13 +1,24 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const isProduction = process.env.NODE_ENV === 'production';
+const publicPath = isProduction ? '/zrs-olympic-games/' : '/';
 
 module.exports = {
-  mode: 'development',
+  mode: isProduction ? 'production' : 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: process.env.NODE_ENV === 'production' ? '/zrs-olympic-games/' : '/',
+    filename: isProduction ? 'bundle.[contenthash].js' : 'bundle.js',
+    publicPath: publicPath,
+    clean: true,
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: 'index.html',
+    }),
+  ],
   devServer: {
     static: {
       directory: path.join(__dirname, 'public'),

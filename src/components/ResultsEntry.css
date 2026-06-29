@@ -1,41 +1,44 @@
 .results-entry {
-  background: white;
-  border-radius: 10px;
+  background: transparent;
+  border-radius: 0;
 }
 
 .results-entry h2 {
-  margin: 0 0 25px;
-  color: #333;
-  font-size: 24px;
+  margin: 0 0 20px;
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .results-entry h3 {
-  margin: 20px 0 15px;
-  color: #555;
-  font-size: 18px;
+  margin: 20px 0 12px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .game-selector {
   display: flex;
-  gap: 15px;
-  align-items: center;
-  margin-bottom: 30px;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
 .game-selector label {
-  font-weight: 500;
-  color: #555;
-  white-space: nowrap;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 13px;
 }
 
 .game-selector select,
 .add-ranking-section select {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
   font-size: 14px;
-  background: white;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
   cursor: pointer;
   transition: border-color 0.3s;
 }
@@ -43,48 +46,49 @@
 .game-selector select:focus,
 .add-ranking-section select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .no-games {
   text-align: center;
-  color: #999;
-  padding: 40px 20px;
-  font-size: 16px;
+  color: var(--text-secondary);
+  padding: 32px 20px;
+  font-size: 14px;
 }
 
 .rankings-section {
-  background: #f8f9fa;
-  padding: 20px;
+  background: var(--bg-tertiary);
+  padding: 16px;
   border-radius: 8px;
+  border: 1px solid var(--border);
 }
 
 .rankings-list {
-  margin: 20px 0;
+  margin: 16px 0;
 }
 
 .ranking-item {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 15px;
-  background: white;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  border: 1px solid #e9ecef;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg-secondary);
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
   transition: all 0.3s ease;
 }
 
 .ranking-item:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+  border-color: var(--accent);
 }
 
 .position-badge {
-  min-width: 50px;
+  min-width: 44px;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -92,71 +96,87 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .player-name {
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .points {
-  font-size: 14px;
-  color: #28a745;
+  font-size: 12px;
+  color: var(--success);
   font-weight: bold;
-  margin-top: 4px;
 }
 
 .add-ranking-section {
   display: flex;
-  gap: 10px;
-  align-items: center;
-  margin: 20px 0;
-  padding: 15px;
-  background: white;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+  padding: 12px;
+  background: var(--bg-secondary);
   border-radius: 8px;
-  border: 2px dashed #667eea;
+  border: 1px dashed var(--accent);
 }
 
 .add-ranking-section label {
-  font-weight: 500;
-  color: #555;
-  white-space: nowrap;
-}
-
-.add-ranking-section select {
-  flex: 1;
-  margin: 0;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 13px;
 }
 
 .save-section {
-  margin-top: 20px;
+  margin-top: 16px;
   text-align: center;
 }
 
 .result-saved {
-  margin-top: 20px;
-  padding: 15px;
-  background: #d4edda;
-  color: #155724;
-  border-radius: 8px;
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border-radius: 6px;
   text-align: center;
   font-weight: 500;
+  font-size: 13px;
 }
 
-@media (max-width: 600px) {
-  .game-selector {
-    flex-direction: column;
-    align-items: flex-start;
+@media (min-width: 640px) {
+  .results-entry h2 {
+    font-size: 20px;
+    margin-bottom: 24px;
   }
 
-  .ranking-item {
-    flex-wrap: wrap;
-    gap: 10px;
+  .game-selector {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .game-selector label {
+    white-space: nowrap;
+    min-width: fit-content;
+  }
+
+  .game-selector select {
+    flex: 1;
   }
 
   .add-ranking-section {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .add-ranking-section label {
+    white-space: nowrap;
+  }
+
+  .add-ranking-section select {
+    flex: 1;
   }
 }

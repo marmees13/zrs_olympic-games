@@ -1,116 +1,118 @@
 .highscore {
-  background: white;
-  border-radius: 10px;
+  background: transparent;
+  border-radius: 0;
 }
 
 .highscore h2 {
-  margin: 0 0 25px;
-  color: #333;
-  font-size: 24px;
+  margin: 0 0 20px;
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .highscore h3 {
-  margin: 30px 0 20px;
-  color: #555;
-  font-size: 18px;
+  margin: 24px 0 16px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .no-data {
   text-align: center;
-  color: #999;
-  padding: 40px 20px;
-  font-size: 16px;
+  color: var(--text-secondary);
+  padding: 32px 20px;
+  font-size: 14px;
 }
 
 /* Podium */
 .podium {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
-  gap: 15px;
-  margin-bottom: 40px;
-  height: 200px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  width: 100%;
 }
 
 .podium-place {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  padding: 20px;
-  border-radius: 8px 8px 0 0;
+  justify-content: center;
+  padding: 16px 12px;
+  border-radius: 8px;
   color: white;
-  min-width: 120px;
+  width: 100%;
   font-weight: bold;
+  text-align: center;
 }
 
 .podium-place.gold {
   background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
   color: #333;
   order: 2;
-  height: 100%;
 }
 
 .podium-place.silver {
   background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
   color: #333;
   order: 1;
-  height: 70%;
 }
 
 .podium-place.bronze {
   background: linear-gradient(135deg, #cd7f32 0%, #e8a76a 100%);
   order: 3;
-  height: 50%;
 }
 
 .podium-place .medal {
-  font-size: 36px;
-  margin-bottom: 8px;
+  font-size: 28px;
+  margin-bottom: 6px;
 }
 
 .podium-place .name {
-  font-size: 16px;
-  margin-bottom: 5px;
-  text-align: center;
+  font-size: 14px;
+  margin-bottom: 4px;
 }
 
 .podium-place .score {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 
 /* Leaderboard */
 .leaderboard {
-  background: #f8f9fa;
+  background: var(--bg-tertiary);
   border-radius: 8px;
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
 }
 
 .leaderboard-header {
   display: grid;
-  grid-template-columns: 60px 1fr 80px;
-  gap: 15px;
-  padding: 15px 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  font-weight: bold;
+  grid-template-columns: 50px 1fr 70px;
+  gap: 8px;
+  padding: 12px;
+  background: var(--accent);
+  color: var(--bg-primary);
+  font-weight: 600;
+  font-size: 12px;
 }
 
 .leaderboard-row {
   display: grid;
-  grid-template-columns: 60px 1fr 80px;
-  gap: 15px;
-  padding: 15px 20px;
-  border-bottom: 1px solid #e9ecef;
+  grid-template-columns: 50px 1fr 70px;
+  gap: 8px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
   align-items: center;
-  background: white;
+  background: transparent;
   transition: background 0.3s ease;
 }
 
 .leaderboard-row:hover {
-  background: #f8f9fa;
+  background: rgba(102, 126, 234, 0.1);
 }
 
 .leaderboard-row:last-child {
@@ -119,51 +121,55 @@
 
 .rank {
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
+  color: var(--accent);
 }
 
 .name-col {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .total-score {
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  color: #667eea;
+  color: var(--accent);
 }
 
 /* Detailed Results Table */
 .detailed-results {
-  margin-top: 30px;
+  margin-top: 24px;
 }
 
 .results-table-container {
   overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
 }
 
 .results-table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
+  background: var(--bg-tertiary);
 }
 
 .results-table thead {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--accent);
+  color: var(--bg-primary);
+  position: sticky;
+  top: 0;
 }
 
 .results-table th {
-  padding: 15px;
+  padding: 12px;
   text-align: center;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-bottom: 2px solid #e9ecef;
 }
 
 .results-table th:first-child {
@@ -171,83 +177,129 @@
 }
 
 .results-table td {
-  padding: 12px 15px;
+  padding: 10px 12px;
   text-align: center;
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
 }
 
 .results-table tr:hover {
-  background: #f8f9fa;
+  background: rgba(102, 126, 234, 0.1);
 }
 
 .player-name {
   text-align: left;
   font-weight: 500;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .result-cell {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .result-cell .position {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 
 .result-cell .points {
-  font-size: 12px;
-  color: #28a745;
+  font-size: 11px;
+  color: var(--success);
   font-weight: bold;
 }
 
 .total-col {
   font-weight: bold;
-  color: #667eea;
-  font-size: 16px;
+  color: var(--accent);
+  font-size: 14px;
 }
 
 .no-results {
   text-align: center;
-  padding: 30px;
-  background: #e7f3ff;
+  padding: 24px;
+  background: rgba(102, 126, 234, 0.1);
   border-radius: 8px;
-  color: #0066cc;
+  color: var(--accent);
+  font-size: 14px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 640px) {
+  .highscore h2 {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
   .podium {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    gap: 10px;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 8px;
+    height: 160px;
+    margin-bottom: 32px;
   }
 
   .podium-place {
-    order: initial;
-    height: auto;
-    width: 100%;
-    min-width: auto;
+    width: auto;
+    min-width: 100px;
+    padding: 16px 12px;
   }
 
   .podium-place.gold {
-    width: 100%;
+    height: 100%;
+  }
+
+  .podium-place.silver {
+    height: 70%;
+  }
+
+  .podium-place.bronze {
+    height: 50%;
+  }
+
+  .podium-place .medal {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .podium-place .name {
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .podium-place .score {
+    font-size: 18px;
   }
 
   .leaderboard-header,
   .leaderboard-row {
-    grid-template-columns: 40px 1fr 60px;
+    grid-template-columns: 60px 1fr 90px;
+    gap: 12px;
+    padding: 14px;
+    font-size: 14px;
   }
 
-  .results-table-container {
-    font-size: 12px;
+  .leaderboard-header {
+    font-size: 13px;
   }
 
   .results-table th,
   .results-table td {
-    padding: 8px 10px;
+    padding: 14px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .highscore h3 {
+    font-size: 16px;
+    margin: 28px 0 20px;
+  }
+
+  .podium {
+    height: 180px;
+    margin-bottom: 36px;
   }
 }
