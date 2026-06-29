@@ -23,8 +23,8 @@ module.exports = {
     isProduction && new CopyPlugin({
       patterns: [
         {
-          from: '.nojekyll',
-          to: '.nojekyll',
+          from: path.resolve(__dirname, '.nojekyll'),
+          to: path.resolve(__dirname, 'dist', '.nojekyll'),
         },
       ],
     }),
